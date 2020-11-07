@@ -1,17 +1,4 @@
 {
-	// Place your snippets for mvbasic here. Each snippet is defined under a snippet name and has a prefix, body and 
-	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
-	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
-	// same ids are connected.
-	// Example:
-	// "Print to console": {
-	// 	"prefix": "log",
-	// 	"body": [
-	// 		"console.log('$1');",
-	// 		"$2"
-	// 	],
-	// 	"description": "Log output to console"
-	// }
 	"t24subr": {
 		"prefix": "t24subr",
 		"body": [
@@ -27,7 +14,7 @@
 			"\t$$INSERT T24.BP I_EQUATE",
 			"\t${2:}\n",
 			"\tRETURN",
-			"END",
+			"END"
 		],
 		"description": "T24 Subroutine Template"
 	},
@@ -53,5 +40,53 @@
 			"${4:VAR} = ${5:record}<${6:PREX}.LOCAL.REF, ${3:OUT_POS.NO}>"
 		],
 		"description": "Get local ref table (eg. ACCOUNT>AC.LOCAL.REF>STAFF.ID"
+	},
+	"readlist": {
+		"prefix": "readlist",
+		"body": "CALL EB.READLIST(${1:sel_cmd}, ${2:sel_list}, '', ${3:num_rec}, ${4:ret_code})",
+		"description": "Execute the select statement"
+	},
+	"loop-repeat": {
+		"prefix": "loop",
+		"body": [
+			"LOOP",
+			"\tREMOVE ${1:sel_id} FROM ${2:sel_list} SETTING ${3:more_ids}",
+			"WHILE ${1:sel_id} : ${3:more_ids}",
+			"\t${4:REM process the record with sel_id}",
+			"REPEAT"
+		],
+		"description": "Loop through selected records"
+	},
+	"for loop": {
+		"prefix": [
+			"for",
+			"for-loop"
+		],
+		"body": [
+			"FOR ${1:i} = 1 TO ${2:num_rec}",
+			"\t ${3:REM statment}",
+			"NEXT ${1:i}"
+		],
+		"description": "For .. Loop"
+	},
+	"if-then": {
+		"prefix": "if",
+		"body": [
+			"IF ${1:condition} THEN",
+			"\t${2:REM statement}",
+			"END"
+		],
+		"description": "IF conditional statement"
+	},
+	"if-else": {
+		"prefix": "if-else",
+		"body": [
+			"IF ${1:condition} THEN",
+			"\t${2:REM statement}",
+			"END ELSE",
+			"\t${3:REM statement}",
+			"END"
+		],
+		"description": "IF-ELSE conditional statement"
 	}
 }
