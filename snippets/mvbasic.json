@@ -88,5 +88,9 @@
 			"END"
 		],
 		"description": "IF-ELSE conditional statement"
+	},
+	"exec": {
+		"prefix": "exec",
+		"body": "EXECUTE ${1:sel_cmd} RTNLIST ${2:sel_list} CAPTURING output"
 	}
 }
