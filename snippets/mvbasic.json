@@ -30,7 +30,7 @@
 	},
 	"insert": {
 		"prefix": "insert",
-		"body": "$$INSERT I_F.${1:fname}",
+		"body": "$$INSERT T24.BP I_F.${1:fname}",
 		"description": "Insert File"
 	},
 	"localref": {
@@ -43,15 +43,15 @@
 	},
 	"readlist": {
 		"prefix": "readlist",
-		"body": "CALL EB.READLIST(${1:sel_cmd}, ${2:sel_list}, '', ${3:num_rec}, ${4:ret_code})",
+		"body": "CALL EB.READLIST(${1:sel_cmd}, ${2:sel_list}, '', ${3:total_rec}, ${4:ret_code})",
 		"description": "Execute the select statement"
 	},
 	"loop-repeat": {
 		"prefix": "loop",
 		"body": [
 			"LOOP",
-			"\tREMOVE ${1:sel_id} FROM ${2:sel_list} SETTING ${3:more_ids}",
-			"WHILE ${1:sel_id} : ${3:more_ids}",
+			"\tREMOVE ${1:sel_id} FROM ${2:sel_list} SETTING ${3:num_recs}",
+			"WHILE ${1:sel_id} : ${3:num_recs}",
 			"\t${4:REM process the record with sel_id}",
 			"REPEAT"
 		],
