@@ -1,0 +1,57 @@
+{
+	// Place your snippets for mvbasic here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"t24subr": {
+		"prefix": "t24subr",
+		"body": [
+			"SUBROUTINE ${TM_FILENAME_BASE}",
+			"*------------------------------------------------------------------",
+			"* ${CLIPBOARD}",
+			"*------------------------------------------------------------------",
+			"* Developer: Aaron Niyonzima(aaron@mathisi.io)",
+			"* Date     : ${CURRENT_DATE}/${CURRENT_MONTH}/${CURRENT_YEAR}",
+			"* Version  : 0.0.1",
+			"*-------------------------------------------------------------------",
+			"\t$$INSERT T24.BP I_COMMON",
+			"\t$$INSERT T24.BP I_EQUATE",
+			"\t${2:}\n",
+			"\tRETURN",
+			"END",
+		],
+		"description": "T24 Subroutine Template"
+	},
+	"fread": {
+		"prefix": "fread",
+		"body": "CALL F.READ(${1:fname}, ${2:id}, ${3:record}, ${4:fh}, err)",
+		"description": "Read T24 File record"
+	},
+	"opf": {
+		"prefix": "opf",
+		"body": "CALL OPF(${1:fname}, ${2:fh})",
+		"description": "Open File"
+	},
+	"insert": {
+		"prefix": "insert",
+		"body": "$$INSERT I_F.${1:fname}",
+		"description": "Insert File"
+	},
+	"localref": {
+		"prefix": "localref",
+		"body": [
+			"CALL GET.LOC.REF('${1:IN_APPL}', '${2:IN_FIELD.NAME}', ${3:OUT_POS.NO})",
+			"${4:VAR} = ${5:record}<${6:PREX}.LOCAL.REF, ${3:OUT_POS.NO}>"
+		],
+		"description": "Get local ref table (eg. ACCOUNT>AC.LOCAL.REF>STAFF.ID"
+	}
+}
