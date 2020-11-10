@@ -50,8 +50,8 @@
 		"prefix": "loop",
 		"body": [
 			"LOOP",
-			"\tREMOVE ${1:sel_id} FROM ${2:sel_list} SETTING ${3:num_recs}",
-			"WHILE ${1:sel_id} : ${3:num_recs}",
+			"\tREMOVE ${1:sel_id} FROM ${2:sel_list} SETTING ${3:pos}",
+			"WHILE ${1:sel_id} : ${3:pos}",
 			"\t${4:REM process the record with sel_id}",
 			"REPEAT"
 		],
@@ -92,5 +92,17 @@
 	"exec": {
 		"prefix": "exec",
 		"body": "EXECUTE ${1:sel_cmd} RTNLIST ${2:sel_list} CAPTURING output"
+	},
+	"case": {
+		"prefix": "case",
+		"body": [
+			"BEGIN CASE",
+			"\tCASE ${1:condition1}",
+			"\t\t${2:REM statement1}",
+			"\tCASE ${3:condition2}",
+			"\t\t${4:REM statement2}",
+			"END CASE"
+		],
+		"description": "Case Statement"
 	}
 }
