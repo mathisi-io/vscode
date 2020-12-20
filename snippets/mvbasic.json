@@ -10,8 +10,8 @@
 			"* Date     : ${CURRENT_DATE}/${CURRENT_MONTH}/${CURRENT_YEAR}",
 			"* Version  : 0.0.1",
 			"*-------------------------------------------------------------------",
-			"\t$$INSERT T24.BP I_COMMON",
-			"\t$$INSERT T24.BP I_EQUATE",
+			"\t$$INSERT I_COMMON",
+			"\t$$INSERT I_EQUATE",
 			"\t${2:}\n",
 			"\tRETURN",
 			"END"
@@ -30,7 +30,7 @@
 	},
 	"insert": {
 		"prefix": "insert",
-		"body": "$$INSERT T24.BP I_F.${1:fname}",
+		"body": "$$INSERT I_F.${1:fname}",
 		"description": "Insert File"
 	},
 	"localref": {
